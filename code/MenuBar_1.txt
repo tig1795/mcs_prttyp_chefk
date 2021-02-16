@@ -1,0 +1,71 @@
+<!-- <!DOCTYPE html>
+<html>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="design.css">
+
+<body>
+
+<!-- Load an icon library --> -->
+
+<ul class="topnav">
+
+    <div class="dropdown">
+    <li><a class="active" href="#home"><i class="fa fa-fw fa-home"></i> Startseite</a></li>
+
+    <li><button class="dropbtn"><i class="fa fa-book" aria-hidden="true"></i> Rezepte<i class="fa fa-caret-down"></i></button></li>
+    <div class="dropdown-content">
+      <a href="#">Link 1</a>
+      <a href="#">Link 2</a>
+      <a href="#">Link 3</a>
+    </div>
+
+    <li><a href="#contact"><i class="fa fa-newspaper-o" aria-hidden="true"></i> Magazin</a></li>
+    <li><a href="#community"><i class="fa fa-users" aria-hidden="true"></i> Community</a></li>
+    <li><a href="#videos"><i class="fa fa-play" aria-hidden="true"></i> Videos</a></li>
+    <li><a href="#DpD"><i class="fa fa-heart" aria-hidden="true"></i> Das perfekte Dinner</a></li>
+    <li><a href="#MK"><i class="fa fa-cutlery" aria-hidden="true"></i> Mein Kochbuch</a></li>
+    <li><a href="#login"><i class="fa fa-user-circle-o" aria-hidden="true"></i> Login</a></li>
+  
+    <div class="search-container">
+      <form action="/action_page.php">
+        <input type="text" placeholder="Search.." name="search">
+        <button type="submit"><i class="fa fa-search"></i></button>
+      </form>
+    
+    </div>
+  </div>
+</ul>
+  
+<div style="padding-left:16px">
+    <h2>Responsive Search Bar</h2>
+    <p>Navigation bar with a search box and a submit button inside of it.</p>
+    <p>Resize the browser window to see the responsive effect.</p>
+</div>
+
+ 
+  <!-- Slide Show -->
+<!-- <section>
+    <img class="mySlides" src="../images/185270423-h-720.jpg" style="width:100%">
+    <img class="mySlides" src="../images/diese-restaurants-in-duesseldorf-bieten-euch-lieferdienst-take-away-1004772.jpg" style="width:100%">
+    <img class="mySlides" src="../images/essen-teller-gerichte-quelle-fotolia-nitr.jpg" style="width:100%">
+</section> -->
+
+<!-- Band Description -->
+<section class="w3-container w3-center w3-content" style="max-width:600px">
+    <h2 class="w3-wide">THE BAND</h2>
+    <p class="w3-opacity"><i>We love music</i></p>
+</section>
+
+<section class="w3-container w3-content w3-center" style="max-width:600px">
+    <p class="w3-justify">
+    We have created a fictional band website. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+</section>
+
+<script src="script.js"></script>
+
+</body>
+</html> 
+
+
+
