@@ -2,6 +2,6 @@ Erstellung eines funktionalen Prototypes für eine nutzerfreundlichere Version d
 
 TO-DOs:
 
-- Logo in die Menüleiste integrieren.
+- Datensatz suchen bzw.  erstellen.
+- Probeseite mit Rezept erstellen, um Menüleiste zu testen.
 - Suchleiste überarbeiten.
-- Am Drop-down-Menü weiterarbeiten. 
