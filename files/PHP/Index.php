@@ -1,8 +1,27 @@
-<html>
+<!DOCTYPE html>
+<?php
+
+    if (isset($_POST["submitted"])) {
+    sucheverarbeiten();
+}
+
+function sucheverarbeiten()
+{
+    if (isset($_POST["rezeptname"])) {
+        $rezeptname = $_POST["rezeptname"];
+    } else {
+        $rezeptname = "";
+    }
+
+    header("Location: results.php?rezeptname=" . $rezeptname);
+}
+
+?>
 
   <head>
     <title>Chefkoch</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../CSS/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   </head>
 
@@ -10,10 +29,10 @@
 
    <div class="menu-bar">
     <div class="logo">
-      <img src="../images/chefkoch-logo_1-1-30.png" alt="" width="150" height="65"/>
+      <img src="../../images/chefkoch-logo_1-1-30.png" alt="" width="120" height="65"/>
       </div>
     <ul>
-      <li class="active"><a href="#"><i class="fa fa-home" aria-hidden="true"></i>Startseite</a></li>
+      <li class="active"><a href="index.php"><i class="fa fa-home" aria-hidden="true"></i>Startseite</a></li>
       <li><a href="#"><i class="fa fa-book" aria-hidden="true"></i>Rezepte</a>
         <div class="sub-menu-1">
           <ul>
@@ -140,7 +159,7 @@
       <li><a href="#"><i class="fa fa-play" aria-hidden="true"></i>Videos</a>
         <div class="sub-menu-1">
             <ul>
-                 <li><a href="#">Lieblingsrezepte</a></li>
+                 <li><a href="../HTML/Lieblingsrezepte.html">Lieblingsrezepte</a></li>
                  <li><a href="#">Einfach lecker</a></li>
                  <li><a href="#">Rikes Backschule</a></li>
                  <li><a href="#">Fabios Kochschule</a></li>
@@ -156,12 +175,13 @@
     </li>
       <li><a href="#"><i class="fa fa-heart" aria-hidden="true"></i>Das perfekte Dinner</a></li>
       <li><a href="#"><i class="fa fa-cutlery" aria-hidden="true"></i>Mein Kochbuch</a></li>
-      <li><a href="#"><i class="fa fa-user-circle-o" aria-hidden="true"></i>Login</a></li>
+      <li><a href="../HTML/login.html"><i class="fa fa-user-circle-o" aria-hidden="true"></i>Login</a></li>
+      
       <div class="search-container">
-        <form action="/action_page.php"> <!-- Hier Datei angeben, mit dem PHP-Suche Skript-->
-          <input type="text" placeholder="Search.." name="search">
-          <button type="submit"><i class="fa fa-search"></i></button>
-        </form>
+      <form class="example" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+        <input type="text" placeholder="Suche" name="rezeptname">
+        <button type="submit" name="submitted"><i class="fa fa-search"></i></button>
+    </form>
       </div>
     </ul>
   </div>
@@ -180,20 +200,20 @@
     <!-- Full-width images with number and caption text -->
     <div class="mySlides fade">
       <div class="numbertext">1 / 3</div>
-      <img src="../images/185270423-h-720.jpg" style="width:100%">
-      <div class="text">Caption Text</div>
+      <img src="../../images/185270423-h-720.jpg" style="width:100%">
+      <div class="text">Brotzeit</div>
     </div>
   
     <div class="mySlides fade">
       <div class="numbertext">2 / 3</div>
-      <img src="../images/diese-restaurants-in-duesseldorf-bieten-euch-lieferdienst-take-away-1004772.jpg" style="width:100%">
-      <div class="text">Caption Two</div>
+      <img src="../../images/diese-restaurants-in-duesseldorf-bieten-euch-lieferdienst-take-away-1004772.jpg" style="width:100%">
+      <div class="text">Burger</div>
     </div>
   
     <div class="mySlides fade">
       <div class="numbertext">3 / 3</div>
-      <img src="../images/essen-teller-gerichte-quelle-fotolia-nitr.jpg" style="width:100%">
-      <div class="text">Caption Three</div>
+      <img src="../../images/essen-teller-gerichte-quelle-fotolia-nitr.jpg" style="width:100%">
+      <div class="text">Vitales Essen</div>
     </div>
   
     <!-- Next and previous buttons -->
@@ -209,8 +229,10 @@
     <span class="dot" onclick="currentSlide(3)"></span>
   </div>
 
+  <script src="../JavaScript/script.js"></script>
 
-<script src="script.js"></script>
+
+
 
   </body>
 </html>
