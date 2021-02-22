@@ -194,20 +194,30 @@ WHERE
 (rezepte.Rezeptname = "'. $rezeptname .'");
 ');
 
-    if (mysqli_num_rows($result) < 1) {
+    $rowCount = mysqli_num_rows($result);
+
+    $markup = "";
+
+    $markup = "<div class='results search-count'>Ihre Suche ergab " . $rowCount . "Treffer. </div>";
+
+    $markup = "<div class='results result-entries'>";
+
+    /* if (mysqli_num_rows($result) < 1) {
         echo "Die Suchanfrage ergab keinen Treffer. Stellen Sie sicher, dass ihre Suchanfrage vollständig und korrekt eingegeben wurde.";
-        /*echo "Keinen Meister gefunden, die in " . $meister . " aufgelistet sind";*/
-    } else {
 
-        echo "<ul>";
+    } else { */
 
-        while ($dsatz =  mysqli_fetch_assoc($result)) {
-            echo "<li>" . $dsatz["Rezeptname"] . " " . $dsatz["Zubereitungszeit"] . " " . $dsatz["Schwierigkeitsgrad"] . " " . $dsatz["Kalorien"] . " " . $dsatz["Zutaten"] . " " . 
-            $dsatz["Zubereitung"] . " " . $dsatz["User"] . "</li>";
+        while ($row =  mysqli_fetch_assoc($result)) {
+          $markup .= $row["Rezeptname"] . " " 
+            . $row["Zubereitungszeit"] . " "
+            . $row["Schwierigkeitsgrad"] . " " 
+            . $row["Kalorien"] . " " 
+            . $row["Zutaten"] . " " 
+            . $row["Zubereitung"] . " "
+            . $row["User"];
         }
 
-        echo "</ul>";
-    }
+        echo $markup;
 
     ?>
 
