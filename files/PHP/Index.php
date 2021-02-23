@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <?php
 
     if (isset($_POST["submitted"])) {
@@ -23,11 +24,12 @@ function sucheverarbeiten()
     <link rel="stylesheet" href="../CSS/style.css" type="text/css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    
   </head>
 
   <body>
-
-   <div class="menu-bar">
+ 
+  <div class="menu-bar">
     <div class="logo">
       <img src="../../images/chefkoch-logo_1-1-30.png" alt="" width="120" height="65"/>
       </div>
@@ -175,7 +177,7 @@ function sucheverarbeiten()
     </li>
       <li><a href="#"><i class="fa fa-heart" aria-hidden="true"></i>Das perfekte Dinner</a></li>
       <li><a href="#"><i class="fa fa-cutlery" aria-hidden="true"></i>Mein Kochbuch</a></li>
-      <li><a href="../HTML/login.html"><i class="fa fa-user-circle-o" aria-hidden="true"></i>Login</a></li>
+      <li><a href="login.php"><i class="fa fa-user-circle-o" aria-hidden="true"></i>Login</a></li>
       
       <div class="search-container">
       <form class="example" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">

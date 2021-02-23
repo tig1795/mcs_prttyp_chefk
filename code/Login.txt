@@ -30,15 +30,12 @@
                 <label for="password">Password</label>
                 <button id="toggle-password" type="button" aria-label="Show password as plain text. Warning: this will display your password on the screen.">Show password</button>
                 <input id="password" name="password" type="password" autocomplete="current-password" aria-describedby="password-constraints" required>
-                <div id="password-constraints">At least eight characters, with at least one lowercase and one uppercase letter.</div>
+                <!-- <div id="password-constraints">At least eight characters, with at least one lowercase and one uppercase letter.</div> -->
+                <div id="register">You don't have an account yet? Then you can register <a href="Register.php"> here.</a></div>
             </section>
             <button id="sign-in">Sign in</button>
           </form>
 
 
-
     </body>
-
-
-
 </html>
