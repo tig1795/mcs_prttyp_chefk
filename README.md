@@ -9,3 +9,5 @@ TO-DOs:
             --> Schlagwortsuche neben Gerichtesuche hinzufügen!
 - Soll Suchleiste von jeder Unterseite aus funktionieren? Dann HTML Datei ändern zu PHP.
 - Neben der überarbeiteten Menüleiste, noch eine Orientierungshilfe hinzufügen? (z.B.  » Startseite » Rezepte » Kategorien )
+- Kontrollieren, ob alle bzw. die schwerwiegenden Usability-Probleme verbessert wurden.
+- Mobile Ansichten und Accessibility 
