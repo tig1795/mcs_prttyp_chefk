@@ -1,84 +1,77 @@
-<?php
-require_once "config.php";
-require_once "session.php";
-$error = '';
-if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
-  $email = trim($_POST['email']);
-  $password = trim($_POST['password']);
-  // validate if email is empty
-  if (empty($email)) {
-      $error .= '<p class="error">Please enter email.</p>';
-  }
-  // validate if password is empty
-  if (empty($password)) {
-      $error .= '<p class="error">Please enter your password.</p>';
-  }
-  if (empty($error)) {
-      if($query = $db->prepare("SELECT * FROM users WHERE email = ?")) {
-          $query->bind_param('s', $email);
-          $query->execute();
-          $row = $query->fetch();
-          if ($row) {
-              if (password_verify($password, $row['password'])) {
-                  $_SESSION["userid"] = $row['id'];
-                  $_SESSION["user"] = $row;
-                  // Redirect the user to welcome page
-                  header("location: welcome.php");
-                  exit;
-              } else {
-                  $error .= '<p class="error">The password is not valid.</p>';
-              }
-          } else {
-              $error .= '<p class="error">No User exist with that email address.</p>';
-          }
-      }
-      $query->close();
-  }
-  //Close connection
-  mysqli_close($db);
-}
-?>
-
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>Login</title>
-        <link rel="stylesheet" href="../CSS/login.css" type="text/css">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-    </head>
-    <body>
-        <header>
-          <div class="row">
+<!DOCTYPE html> 
+<html> 
+<head>
+  <title>Login</title>    
+  <link rel="stylesheet" href="../CSS/login.css" type="text/css">
+</head> 
+<body>
+    <header>
+        <div class="row">
             <div class="logo-row">
-              <a href="../PHP/Index.php">
+              <a href="Index.php">
                <img src="../../images/chefkoch-logo_1-1-30.png" alt="logo" class="logo">
               </a>
             </div>
-          </div>
-        </header>
-        
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <h2>Login</h2>
-                    <p>Please fill in your email and password.</p>
-                    <form action="" method="post">
-                        <div class="form-group">
-                            <label>Email Address</label>
-                            <input type="email" name="email" class="form-control" required>
-                        </div>
-                        <div class="form-group">
-                            <label>Password</label>
-                            <input type="password" name="password" class="form-control" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="submit" name="submit" class="btn btn-primary" value="Submit">
-                        </div>
-                        <p>Don't have an account? <a href="register.php">Register here</a>.</p>
-                    </form>
-                </div>
-            </div>
         </div>
-    </body>
+    </header>
+<br>
+
+</body>
+</html>
+
+<?php 
+session_start();
+$pdo = new PDO('mysql:host=localhost;dbname=chefkoch', 'root', '');
+ 
+if(isset($_GET['login'])) { //Zuerst wird die Datenbank nach der entsprechenden E-Mail-Adresse abgefragt. 
+                            //Sollte kein Benutzer gefunden worden sein, so hat der $user den Wert false.
+    $email = $_POST['email'];
+    $passwort = $_POST['passwort'];
+    
+    $statement = $pdo->prepare("SELECT * FROM users WHERE email = :email");
+    $result = $statement->execute(array('email' => $email));
+    $user = $statement->fetch();
+        
+    //Überprüfung des Passworts
+    if ($user !== false && password_verify($passwort, $user['passwort'])) { //Überprüfung des Passworts.
+
+    //password_hash() erzeugt bei mehrmaligem Aufruf unterschiedliche Hashwerte selbst bei identischen 
+    //Passwörtern. Deswegen funktioniert es nicht, nur die Benutzereingabe zu hashen und diesen Hashwert 
+    //mit dem existierenden Hashwert zu vergleichen.
+
+        $_SESSION['userid'] = $user['id'];
+    //Sollte ein Nutzer gefunden worden sein und sollte zusätzlich das Passwort stimmen, 
+    //wird die Session-Variable userid mit der ID des Benutzers registrieren.
+        die('Login erfolgreich. Weiter zur <a href="Index_login.php">Startseite.</a>');
+    } else {
+        $errorMessage = "E-Mail oder Passwort war ungültig<br>";
+    }
+    
+}
+?>
+ 
+<?php 
+if(isset($errorMessage)) {
+    echo $errorMessage;
+}
+?>
+ 
+<form action="?login=1" method="post">
+E-Mail:<br>
+<br>
+<input type="email" size="40" maxlength="250" name="email"><br>
+<br>
+ 
+Dein Passwort:<br>
+<br>
+<input type="password" size="40"  maxlength="250" name="passwort"><br>
+<br>
+ 
+<br>
+<input type="submit" value="Abschicken"><br>
+<br>
+
+<p>Sie haben noch kein Konto? <a href="registrieren.php">Hier registrieren</a>.</p>
+</form> 
+</body>
 </html>
