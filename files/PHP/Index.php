@@ -1,24 +1,5 @@
 <!DOCTYPE html>
 
-<?php
-
-    if (isset($_POST["submitted"])) {
-    sucheverarbeiten();
-}
-
-function sucheverarbeiten()
-{
-    if (isset($_POST["rezeptname"])) {
-        $rezeptname = $_POST["rezeptname"];
-    } else {
-        $rezeptname = "";
-    }
-
-    header("Location: results.php?rezeptname=" . $rezeptname);
-}
-
-?>
-
   <head>
     <title>Chefkoch</title>
     <link rel="stylesheet" href="../CSS/style.css" type="text/css">
@@ -161,7 +142,7 @@ function sucheverarbeiten()
       <li><a href="#"><i class="fa fa-play" aria-hidden="true"></i>Videos</a>
         <div class="sub-menu-1">
             <ul>
-                 <li><a href="../HTML/Lieblingsrezepte.html">Lieblingsrezepte</a></li>
+                 <li><a href="Lieblingsrezepte.php">Lieblingsrezepte</a></li>
                  <li><a href="#">Einfach lecker</a></li>
                  <li><a href="#">Rikes Backschule</a></li>
                  <li><a href="#">Fabios Kochschule</a></li>
@@ -180,10 +161,10 @@ function sucheverarbeiten()
       <li><a href="login.php"><i class="fa fa-user-circle-o" aria-hidden="true"></i>Login</a></li>
       
       <div class="search-container">
-      <form class="example" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-        <input type="text" placeholder="Suche" name="rezeptname">
-        <button type="submit" name="submitted"><i class="fa fa-search"></i></button>
-    </form>
+      <form action='Suche.php'method="get">
+          <input type="text" class="suchfeld" name="search" />
+          <input type="submit" class="suchbutton" value="Suche" />
+      </form>
       </div>
     </ul>
   </div>

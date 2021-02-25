@@ -106,19 +106,14 @@ body{
     float: right;
   }
   
-  .menu-bar input[type=text] {
-    padding: 6px;
-    margin-top: 8px;
-    font-size: 17px;
-    border: none;
-  }
+  
   
   .menu-bar .search-container button {
     float: right;
     padding: 6px 10px;
     margin-top: 8px;
     margin-right: 17px;
-    background: #ddd;
+    background: rgb(241, 245, 232);
     font-size: 17px;
     border: none;
     cursor: pointer;
@@ -141,7 +136,7 @@ body{
       padding: 14px;
     }
     .menu-bar input[type=text] {
-      border: 1px solid #ccc;  
+      border-style: solid;  
     }
   }
 

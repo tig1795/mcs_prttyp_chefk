@@ -154,11 +154,11 @@
             </li>
               <li><a href="#"><i class="fa fa-heart" aria-hidden="true"></i>Das perfekte Dinner</a></li>
               <li><a href="#"><i class="fa fa-cutlery" aria-hidden="true"></i>Mein Kochbuch</a></li>
-              <li><a href="login.html"><i class="fa fa-user-circle-o" aria-hidden="true"></i>Login</a></li>
+              <li><a href="login.php"><i class="fa fa-user-circle-o" aria-hidden="true"></i>Login</a></li>
               <div class="search-container">
-                <form class="example" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-                    <input type="text" placeholder="Suche" name="rezeptname">
-                    <button type="submit" name="submitted"><i class="fa fa-search"></i></button>
+                <form action='Suche.php'method="get">
+                    <input type="text" class="suchfeld" name="search" />
+                    <input type="submit" class="suchbutton" value="Suche" />
                 </form>
               </div>
             </ul>

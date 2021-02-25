@@ -1,0 +1,43 @@
+<?php
+
+    $db_host = "localhost";
+    $db_user = "root";
+    $db_pw = "";
+    $db_name = "chefkoch";
+
+    $conn = mysqli_connect($db_host, $db_user, $db_pw, $db_name);
+    if (!$conn) {
+        die('Connect Error: ' . mysqli_connect_error());
+    }
+
+    $suchbegriff = trim(htmlentities(stripslashes(mysqli_real_escape_string($_POST['suchfeld']))));
+
+    $sql = "
+    SELECT
+      Rezeptname, Zubereitungszeit, Schwierigkeitsgrad, Kalorien, Zutaten, Zubereitung
+    FROM
+      rezepte
+    WHERE
+      Rezeptname LIKE '%$suchbegriff%'
+      OR
+      Zutaten LIKE '%$suchbegriff%'
+    ORDER BY
+      Rezeptname
+    ";
+    $query = mysql_query($sql);
+
+    echo"<ul>";
+    while($row = mysql_fetch_assoc($query))
+    {
+      $rezeptname = $row['Rezeptname'];
+      $zubereitungszeit = $row['Zubereitungszeit'];
+      $schwierigkeitsgrad = $row['Schwierigkeitsgrad'];
+      $kalorien = $row['Kalorien'];
+      $zutaten = $row['Zutaten'];
+      $zubereitung = $row['Zubereitung'];
+
+      echo "<li>Test $rezeptname $zubereitungszeit $schwierigkeitsgrad $kalorien $zutaten $zubereitung</li>";
+    }
+    echo "</ul>"; 
+
+    ?>
