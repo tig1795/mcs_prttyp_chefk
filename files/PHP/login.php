@@ -22,6 +22,8 @@
 <?php 
 session_start();
 $pdo = new PDO('mysql:host=localhost;dbname=chefkoch', 'root', '');
+//Die PHP Data Objects-Erweiterung (PDO) stellt eine leichte, konsistente Schnittstelle bereit, um mit PHP auf Datenbanken zuzugreifen. 
+//Jeder Datenbanktreiber, der die PDO-Schnittstelle implementiert, kann spezifische Features als reguläre Funktionen der Erweiterung bereitstellen. 
  
 if(isset($_GET['login'])) { //Zuerst wird die Datenbank nach der entsprechenden E-Mail-Adresse abgefragt. 
                             //Sollte kein Benutzer gefunden worden sein, so hat der $user den Wert false.
@@ -32,12 +34,7 @@ if(isset($_GET['login'])) { //Zuerst wird die Datenbank nach der entsprechenden 
     $result = $statement->execute(array('email' => $email));
     $user = $statement->fetch();
         
-    //Überprüfung des Passworts
-    if ($user !== false && password_verify($passwort, $user['passwort'])) { //Überprüfung des Passworts.
-
-    //password_hash() erzeugt bei mehrmaligem Aufruf unterschiedliche Hashwerte selbst bei identischen 
-    //Passwörtern. Deswegen funktioniert es nicht, nur die Benutzereingabe zu hashen und diesen Hashwert 
-    //mit dem existierenden Hashwert zu vergleichen.
+    if ($user !== false && password_verify($passwort, $user['passwort'])) { //Überprüft, ob ein Passwort und ein Hash zusammenpassen. 
 
         $_SESSION['userid'] = $user['id'];
     //Sollte ein Nutzer gefunden worden sein und sollte zusätzlich das Passwort stimmen, 

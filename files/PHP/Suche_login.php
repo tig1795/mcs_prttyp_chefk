@@ -1,24 +1,21 @@
 <!DOCTYPE html>
 
-  <head>
-    <title>Chefkoch</title>
-    <link rel="stylesheet" href="../CSS/menubar.css" type="text/css">
-    <link rel="stylesheet" href="../CSS/slide.css" type="text/css">
-    <link rel="stylesheet" href="../CSS/Fußzeile.css" type="text/css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    
-  </head>
+<head>
+<title>Suchergebnisse</title>
+<link rel="stylesheet" href="../CSS/menubar.css" type="text/css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
 
-  <body>
- 
-  <div class="menu-bar">
+<body>
+
+    <div class="menu-bar">
     <div class="logo">
       <img src="../../images/chefkoch-logo_1-1-30.png" alt="" width="120" height="65"/>
       </div>
     <ul>
-      <li class="active"><a href="index_login.php"><i class="fa fa-home" aria-hidden="true"></i>Startseite</a></li>
-      <li><a href="#"><i class="fa fa-book" aria-hidden="true"></i>Rezepte</a>
+      <li><a href="index_login.php"><i class="fa fa-home" aria-hidden="true"></i>Startseite</a></li>
+      <li class="active"><a href="#"><i class="fa fa-book" aria-hidden="true"></i>Rezepte</a>
         <div class="sub-menu-1">
           <ul>
             <li class="hover-me"><a href="#">Rezepte finden</a><i class="fa fa-angle-right"></i>
@@ -160,13 +157,7 @@
     </li>
       <li><a href="#"><i class="fa fa-heart" aria-hidden="true"></i>Das perfekte Dinner</a></li>
       <li><a href="#"><i class="fa fa-cutlery" aria-hidden="true"></i>Mein Kochbuch</a></li>
-      <li><a href="#"><i class="fa fa-user-circle-o" aria-hidden="true"></i></a>
-        <div class="sub-menu-1">
-            <ul>
-                 <li><a href="logout.php">Logout</a></li>
-            </ul>
-        </div>
-      </li>
+      <li><a href="login.php"><i class="fa fa-user-circle-o" aria-hidden="true"></i></a></li>
       
       <div class="search-container">
       <form action='Suche_login.php'method="get">
@@ -176,88 +167,54 @@
       </div>
     </ul>
   </div>
-
-  <div style="text-align: center;">
-  <p>  
-    <h2>Prototype</h2><br>
-    <p>First Version.</p><br>
-  </p>
-  </div>
-
-   <!-- Slide Show -->
-
-   <div class="slideshow-container">
-
-    <!-- Full-width images with number and caption text -->
-    <div class="mySlides fade">
-      <div class="numbertext">1 / 3</div>
-      <img src="../../images/185270423-h-720.jpg" style="width:100%">
-      <div class="text">Brotzeit</div>
-    </div>
-  
-    <div class="mySlides fade">
-      <div class="numbertext">2 / 3</div>
-      <img src="../../images/diese-restaurants-in-duesseldorf-bieten-euch-lieferdienst-take-away-1004772.jpg" style="width:100%">
-      <div class="text">Burger</div>
-    </div>
-  
-    <div class="mySlides fade">
-      <div class="numbertext">3 / 3</div>
-      <img src="../../images/essen-teller-gerichte-quelle-fotolia-nitr.jpg" style="width:100%">
-      <div class="text">Vitales Essen</div>
-    </div>
-  
-    <!-- Next and previous buttons -->
-    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-    <a class="next" onclick="plusSlides(1)">&#10095;</a>
-  </div>
   <br>
-  
-  <!-- The dots/circles -->
-  <div style="text-align:center">
-    <span class="dot" onclick="currentSlide(1)"></span>
-    <span class="dot" onclick="currentSlide(2)"></span>
-    <span class="dot" onclick="currentSlide(3)"></span>
-  </div>
-
-  <script src="../JavaScript/script.js"></script>
+  <header>Suchergebnisse:</header><br>
   <br>
-  <hr>
-  <br>
+    <section>
+        <p>
+        <?php
+            if(isset($_GET["search"])){
+                $suchwort = $_GET["search"];
+                $abfrage = "";
+                $abfrage2 = "";
+                $suchwort = explode(" ", $suchwort);
+                for($i = 0; $i < sizeof($suchwort); $i++)
+                {
+                    $abfrage .= "`Rezeptname` LIKE '%" . $suchwort[$i] . "%'";
+                    $abfrage2 .= "`Zutaten` LIKE '%" . $suchwort[$i] . "%'";
+                    if($i < (sizeof($suchwort) - 1)) {
+                        $abfrage .= "OR"; 
+                        $abfrage2 .= "OR";    
+                    }
+                }
+                $db = @new mysqli('localhost', 'root', '', 'chefkoch');
 
-  <div id="footer">
-  <div id="left">Konzern<br>
-  <br>
-  <ul>
-    <li><a href="#" title="AGB"> AGB</a><li>
-    <li><a href="#" title="Jobs"> Jobs</a><li>
-    <li><a href="#" title="Press"> Presse</a><li>
-    <li><a href="#" title="Impressum"> Impressum</a><li>
-    <li><a href="#" title="Datenschutz"> Datenschutz</a><li><br>
-    <br>
-  </ul>
-  </div>
+                if(mysqli_connect_errno() == 0)
+                {
+                    $sql = "SELECT * FROM `rezepte` WHERE ".$abfrage . "OR" . $abfrage2;
+                    $ergebnis = $db->query($sql);
 
-  <div id="center">Quicklinks<br>
-  <br>
-  <ul>
-    <li><a href="Lieblingsrezepte_login.php" title="Lieblingsrezpte"> Lieblingsrezepte</a><li><br>
-    <br>
-  </ul>
-  </div>
+                    echo '<table border="1">';
+                    while ($zeile = mysqli_fetch_array($ergebnis, MYSQLI_ASSOC))
+                    {
+                        echo "<tr>";
+                        echo "<td>". $zeile['ID'] . "</td>";
+                        echo "<td>". $zeile['Rezeptname'] . "</td>";
+                        echo "<td>". $zeile['Zubereitungszeit'] . "</td>";
+                        echo "<td>". $zeile['Schwierigkeitsgrad'] . "</td>";
+                        echo "<td>". $zeile['Kalorien'] . "</td>";
+                        echo "<td>". $zeile['Zutaten'] . "</td>";
+                        echo "<td>". $zeile['Zubereitung'] . "</td>";
+                        echo "</tr>";
+                    }
+                    echo "</table>";
+                }
+            }
 
-  <div id="right">Newsletter<br>
-  <br>
-  <ul>
-    <li><a href="#" title="Zum Newsletter anmelden"> Lieblingsrezepte</a><li><br>
-    <br>
-  </ul>
-  </div>
-  
-  </div>
+        ?>
 
+    </section>
+    
+</body>
 
-
-
-  </body>
 </html>

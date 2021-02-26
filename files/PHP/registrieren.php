@@ -63,10 +63,10 @@ if(isset($_GET['register'])) { //Überprüfung, ob der GET-Parameter übergeben 
     //Keine Fehler, wir können den Nutzer registrieren
     if(!$error) {    
         $passwort_hash = password_hash($passwort, PASSWORD_DEFAULT);
-        //Berechnung mittels password_hash() den Hashwert des Passworts.
-        //password_hash() erstellt einen neuen Passwort-Hash und benutzt dabei einen starken Einweg-Hashing-
-        //Algorithmus. password_hash() ist kompatibel zu crypt(). Daher können Passwort-Hashes, 
-        //die durch crypt() erzeugt wurden, mit password_hash() verwendet werden.
+
+        //password_hash() erzeugt bei mehrmaligem Aufruf unterschiedliche Hashwerte selbst bei identischen 
+        //Passwörtern. Deswegen funktioniert es nicht, nur die Benutzereingabe zu hashen und diesen Hashwert 
+        //mit dem existierenden Hashwert zu vergleichen.
         
         $statement = $pdo->prepare("INSERT INTO users (vorname, nachname, email, passwort) VALUES (:vorname, :nachname, :email, :passwort)");
         //SQL-Query zum eintragen des neuen Nutzers.

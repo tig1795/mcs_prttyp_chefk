@@ -13,7 +13,7 @@
               <img src="../../images/chefkoch-logo_1-1-30.png" alt="" width="120" height="65"/>
               </div>
             <ul>
-              <li><a href="../PHP/Index.php"><i class="fa fa-home" aria-hidden="true"></i>Startseite</a></li>
+              <li><a href="Index_login.php"><i class="fa fa-home" aria-hidden="true"></i>Startseite</a></li>
               <li><a href="#"><i class="fa fa-book" aria-hidden="true"></i>Rezepte</a>
                 <div class="sub-menu-1">
                   <ul>
@@ -156,9 +156,16 @@
             </li>
               <li><a href="#"><i class="fa fa-heart" aria-hidden="true"></i>Das perfekte Dinner</a></li>
               <li><a href="#"><i class="fa fa-cutlery" aria-hidden="true"></i>Mein Kochbuch</a></li>
-              <li><a href="login.php"><i class="fa fa-user-circle-o" aria-hidden="true"></i>Login</a></li>
+              <li><a href="#"><i class="fa fa-user-circle-o" aria-hidden="true"></i></a>
+                <div class="sub-menu-1">
+                  <ul>
+                    <li><a href="logout.php">Logout</a></li>
+                  </ul>
+                </div>
+              </li>
+
               <div class="search-container">
-                <form action='Suche.php'method="get">
+                <form action='Suche_login.php'method="get">
                     <input type="text" class="suchfeld" name="search" />
                     <input type="submit" class="suchbutton" value="Suche" />
                 </form>
@@ -166,7 +173,7 @@
             </ul>
         </div>
         <br>
-        <header> »<a href="index.php"> Startseite</a> » Videos » Lieblingsrezepte</header><br>
+        <header> »<a href="index_login.php"> Startseite</a> » Videos » Lieblingsrezepte</header><br>
         <br>
 
       <div style="text-align: center;">
@@ -176,7 +183,6 @@
 
       <br>
   <hr>
-  <br>
 
   <div id="footer">
   <div id="left">Konzern<br>

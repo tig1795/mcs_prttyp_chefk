@@ -2,7 +2,9 @@
 
   <head>
     <title>Chefkoch</title>
-    <link rel="stylesheet" href="../CSS/style.css" type="text/css">
+    <link rel="stylesheet" href="../CSS/menubar.css" type="text/css">
+    <link rel="stylesheet" href="../CSS/slide.css" type="text/css">
+    <link rel="stylesheet" href="../CSS/Fußzeile.css" type="text/css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     
@@ -15,7 +17,9 @@
       <img src="../../images/chefkoch-logo_1-1-30.png" alt="" width="120" height="65"/>
       </div>
     <ul>
-      <li class="active"><a href="index.php"><i class="fa fa-home" aria-hidden="true"></i>Startseite</a></li>
+      <li class="active">
+        <a href="index.php"><i class="fa fa-home" aria-hidden="true"></i>Startseite</a>
+      </li>
       <li><a href="#"><i class="fa fa-book" aria-hidden="true"></i>Rezepte</a>
         <div class="sub-menu-1">
           <ul>
@@ -212,10 +216,42 @@
     <span class="dot" onclick="currentSlide(3)"></span>
   </div>
 
-  <script src="../JavaScript/script.js"></script>
+  <script src="../JavaScript/script.js"></script><br>
+  <br>
+  <hr>
+  <br>
+  
+  
+  <div id="footer">
+  <div id="left">Konzern<br>
+  <br>
+  <ul>
+    <li><a href="#" title="AGB"> AGB</a><li>
+    <li><a href="#" title="Jobs"> Jobs</a><li>
+    <li><a href="#" title="Press"> Presse</a><li>
+    <li><a href="#" title="Impressum"> Impressum</a><li>
+    <li><a href="#" title="Datenschutz"> Datenschutz</a><li><br>
+    <br>
+  </ul>
+  </div>
 
+  <div id="center">Quicklinks<br>
+  <br>
+  <ul>
+    <li><a href="Lieblingsrezepte.php" title="Lieblingsrezpte"> Lieblingsrezepte</a><li><br>
+    <br>
+  </ul>
+  </div>
 
-
+  <div id="right">Newsletter<br>
+  <br>
+  <ul>
+    <li><a href="#" title="Zum Newsletter anmelden"> Lieblingsrezepte</a><li><br>
+    <br>
+  </ul>
+  </div>
+  
+  </div>
 
   </body>
 </html>

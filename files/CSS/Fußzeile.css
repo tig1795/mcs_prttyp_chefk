@@ -1,0 +1,50 @@
+#footer {   /* Footerbereich */
+    
+    color: green;
+    height: 80px;
+    width: 100%;
+    min-width: 500px;
+    padding: 0px;
+    margin: 0px;
+    border: 0px;
+}
+#left {     /* Linke Spalte mit 33% Breite und float:left */
+    width: 33%;
+    float: left;
+    padding: 15px 0px 0px 10px;
+    margin: 0px auto 0px auto;
+    text-align: center;
+}
+
+#left li{
+    list-style-type: none; /* ohne Aufzählungspunkte */
+}
+
+#center {   /* Mittlere Spalte mit 33% Breite und float:left */
+    width: 33%;
+    float: left;
+    padding: 15px 0px 0px 0px;
+    margin: 0px auto 0px auto;
+    text-align: center;
+}
+
+#center li{
+    list-style-type: none; /* ohne Aufzählungspunkte */
+}
+
+#right {    /* Rechte Spalte ohne feste Breite und float:right */
+    width: 33%;
+    float: left;
+    padding: 15px 10px 0px 0px;
+    margin: 0px auto 0px auto;
+    text-align: center;
+}
+
+#right li{
+    list-style-type: none; /* ohne Aufzählungspunkte */
+}
+
+#clear {    /* Beendet den Float-Bereich */
+    clear: both;
+}
+
