@@ -70,9 +70,13 @@ function our_sql_connect ( $server, $benutzer, $passwort, $name_der_db ) {
 function my_html_head ( $title = "test") {	
   $server = $_SERVER["SERVER_NAME"];
   print <<<EOH
-<head>
+<!DOCTYPE html>
+
+  <head>
     <title>Chefkoch</title>
-    <link rel="stylesheet" href="../CSS/style.css" type="text/css">
+    <link rel="stylesheet" href="../CSS/menubar.css" type="text/css">
+    <link rel="stylesheet" href="../CSS/slide.css" type="text/css">
+    <link rel="stylesheet" href="../CSS/Fußzeile.css" type="text/css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     
@@ -85,7 +89,9 @@ function my_html_head ( $title = "test") {
       <img src="../../images/chefkoch-logo_1-1-30.png" alt="" width="120" height="65"/>
       </div>
     <ul>
-      <li class="active"><a href="index.php"><i class="fa fa-home" aria-hidden="true"></i>Startseite</a></li>
+      <li class="active">
+        <a href="index2.php"><i class="fa fa-home" aria-hidden="true"></i>Startseite</a>
+      </li>
       <li><a href="#"><i class="fa fa-book" aria-hidden="true"></i>Rezepte</a>
         <div class="sub-menu-1">
           <ul>
@@ -93,7 +99,7 @@ function my_html_head ( $title = "test") {
               <div class="sub-menu-2">
                 <ul>
                 <li><a href="#">Kategorien</a></li>
-                <li><a href="#">Rezept eingeben</a></li>
+                <li><a href="newrecipe2.php">Rezept eingeben</a></li>
                 </ul>
               </div>   
               <li class="hover-me"><a href="#">Empfehlungen</a><i class="fa fa-angle-right"></i>
@@ -212,7 +218,7 @@ function my_html_head ( $title = "test") {
       <li><a href="#"><i class="fa fa-play" aria-hidden="true"></i>Videos</a>
         <div class="sub-menu-1">
             <ul>
-                 <li><a href="Lieblingsrezepte.php">Lieblingsrezepte</a></li>
+                 <li><a href="Lieblingsrezepte2.php">Lieblingsrezepte</a></li>
                  <li><a href="#">Einfach lecker</a></li>
                  <li><a href="#">Rikes Backschule</a></li>
                  <li><a href="#">Fabios Kochschule</a></li>
@@ -221,39 +227,77 @@ function my_html_head ( $title = "test") {
                  <li><a href="#">Brot backen</a></li>
                  <li><a href="#">Lunchdate</a></li>
                  <li><a href="#">How To: Küchenbasics</a></li>
-                 <li><a href="#">Hackn Roll</a></li>
+                 <li><a href="#">Hack'n Roll</a></li>
                  <li><a href="#">Do it yourself: Deko & Co.</a></li>
             </ul>
         </div>
     </li>
       <li><a href="#"><i class="fa fa-heart" aria-hidden="true"></i>Das perfekte Dinner</a></li>
-      <li><a href="#"><i class="fa fa-cutlery" aria-hidden="true"></i>Mein Kochbuch</a></li>
-      <li><a href="login.php"><i class="fa fa-user-circle-o" aria-hidden="true"></i>Login</a></li>
-      
+      <li><a href="#"><i class="fa fa-cutlery" aria-hidden="true"></i>Mein Kochbuch</a></li>	  
+EOH;
+	  if(!isset($_SESSION['userid'])) {
+    echo '<li><a href="login2.php"><i class="fa fa-user-circle-o" aria-hidden="true"></i>Login</a></li>';
+}else{
+	/*echo "Hallo User: ".$userid;*/
+	echo <<<eoh
+	<li><a href="#"><i class="fa fa-user-circle-o" aria-hidden="true"></i></a>
+        <div class="sub-menu-1">
+            <ul>
+                 <li><a href="logout2.php">Logout</a></li>
+            </ul>
+        </div>
+      </li>
+eoh;
+} 
+	  print <<<EOH
       <div class="search-container">
-      <form action='Suche.php'method="get">
+      <form action='Suche2.php'method="get">
           <input type="text" class="suchfeld" name="search" />
           <input type="submit" class="suchbutton" value="Suche" />
       </form>
       </div>
     </ul>
   </div>
-
-  <div style="text-align: center;">
-  <p>  
-    <h2>Prototype</h2><br>
-    <p>First Version.</p><br>
-  </p>
-  </div>
-	<div>
 EOH;
 }
+
+
+
 
 // Statischer HTML Fuss, nach dem Seiteninhalt
 function my_html_foot () {
   print<<<EndOfHtml
-</div>
-  <script src="../JavaScript/script.js"></script>
+<div id="footer">
+  <div id="left">Konzern<br>
+  <br>
+  <ul>
+    <li><a href="#" title="AGB"> AGB</a><li>
+    <li><a href="#" title="Jobs"> Jobs</a><li>
+    <li><a href="#" title="Press"> Presse</a><li>
+    <li><a href="#" title="Impressum"> Impressum</a><li>
+    <li><a href="#" title="Datenschutz"> Datenschutz</a><li><br>
+    <br>
+  </ul>
+  </div>
+
+  <div id="center">Quicklinks<br>
+  <br>
+  <ul>
+    <li><a href="Lieblingsrezepte2.php" title="Lieblingsrezpte"> Lieblingsrezepte</a><li><br>
+    <br>
+  </ul>
+  </div>
+
+  <div id="right">Newsletter<br>
+  <br>
+  <ul>
+    <li><a href="#" title="Zum Newsletter anmelden"> Lieblingsrezepte</a><li><br>
+    <br>
+  </ul>
+  </div>
+  
+  </div>
+
   </body>
 </html>
 EndOfHtml;
