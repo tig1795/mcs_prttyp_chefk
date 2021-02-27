@@ -187,14 +187,21 @@
     <!-- Full-width images with number and caption text -->
     <div class="mySlides fade">
       <div class="numbertext">1 / 3</div>
-      <img src="../../images/185270423-h-720.jpg" style="width:100%">
-      <div class="text">Brotzeit</div>
+      <div style="text-align: center;">
+        <object data="http://www.youtube.com/embed/PJvf5pF55cA"
+        width="860" height="515"></object>
+      </div>
+        <div class="text">Brotzeit</div>
     </div>
-  
+
+    
     <div class="mySlides fade">
       <div class="numbertext">2 / 3</div>
-      <img src="../../images/diese-restaurants-in-duesseldorf-bieten-euch-lieferdienst-take-away-1004772.jpg" style="width:100%">
-      <div class="text">Burger</div>
+      <div style="text-align: center;">
+        <object data="http://www.youtube.com/embed/M34tzv5ZMTA"
+        width="860" height="515"></object>
+      </div>
+      <div class="text">Burgersoße</div>
     </div>
   
     <div class="mySlides fade">
