@@ -124,7 +124,13 @@ print <<<EOH
               <div class="sub-menu-2">
                 <ul>
                 <li><a href="#">Kategorien</a></li>
-                <li><a href="newrecipe2.php">Rezept eingeben</a></li>
+				
+EOH;
+if(isset($_SESSION['userid'])) {
+	print '<li><a href="newrecipe2.php">Rezept eingeben</a></li>';
+}
+print <<<EOH
+                
                 </ul>
               </div>   
               <li class="hover-me"><a href="#">Empfehlungen</a><i class="fa fa-angle-right"></i>
