@@ -67,7 +67,7 @@ function our_sql_connect ( $server, $benutzer, $passwort, $name_der_db ) {
 }
 
 // Statischer HTML Rahmen vor dem Seiteninhalt
-function my_html_head ( $title = "test") {	
+function my_html_head ( $title = "test", $name="default") {	
   $server = $_SERVER["SERVER_NAME"];
   print <<<EOH
 <!DOCTYPE html>
@@ -240,7 +240,26 @@ EOH;
 }else{
 	/*echo "Hallo User: ".$userid;*/
 	echo <<<eoh
-	<li><a href="#"><i class="fa fa-user-circle-o" aria-hidden="true"></i></a>
+	<li><a href="#">
+eoh;
+$userid = $_SESSION['userid'];
+$name_der_db  = "chefkoch";
+$benutzer     = "root";
+$passwort     = "";
+$tabellenname = "rezepte";
+
+$links = our_sql_connect ( $server, $benutzer, $passwort, $name_der_db );
+$usernames = "SELECT 
+	id,
+	vorname
+    FROM users WHERE id=$userid";
+	$erg = mysqli_query ( $links, $usernames );
+	while ( $zeile = mysqli_fetch_array ( $erg, MYSQLI_ASSOC ) ) {
+	echo "<text>".$zeile["vorname"]. " </text>";
+	}
+	print <<<eoh
+	
+	<i class="fa fa-user-circle-o" aria-hidden="true"></i></a>
         <div class="sub-menu-1">
             <ul>
                  <li><a href="logout2.php">Logout</a></li>

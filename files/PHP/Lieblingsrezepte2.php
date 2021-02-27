@@ -18,7 +18,7 @@ $link = our_sql_connect ( $server, $benutzer, $passwort, $name_der_db );
 
 print <<<EOH
         <br>
-        <header> »<a href="index.php"> Startseite</a> » Videos » Lieblingsrezepte</header><br>
+        <header> »<a href="index2.php"> Startseite</a> » Videos » Lieblingsrezepte</header><br>
         <br>
 
       <div style="text-align: center;">
