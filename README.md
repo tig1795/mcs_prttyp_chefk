@@ -2,6 +2,9 @@ Erstellung eines funktionalen Prototypes für eine nutzerfreundlichere Version d
 
 TO-DOs:
 
-- Database: --> Wie soll der Datensatz weiter aufgebaut werden? (Bis jetzt 8 Spalten: ID, Rezeptname, Zubereitungszeit, Schwierigkeitsgrad, Kalorien, Zutaten,          Zubereitung, User)
-            --> Wie viele Einträge? 
-- Mobile Ansichten und Accessibility 
+- Datenbank: möglicherweise Spalten ändern.
+- Rezepteingabe-Funktion nur wenn man eingeloggt ist. 
+- Schlagwörter mit Toogleleiste.
+- Suchseite --> Filter für Ergebnisse.
+- class aktiv.
+- Pop-Up hinzufügen. 
