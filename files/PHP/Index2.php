@@ -5,8 +5,9 @@ $server = $_SERVER["SERVER_NAME"];
 $script = $_SERVER["SCRIPT_NAME"];
 require ( "funktionen.php" );
 
-
-my_html_head ( $script );  
+// Menükategorien: index rezepte magazin community videos dinner meinkochbuch
+$title ="index";
+my_html_head ( $title );  
 
 $name_der_db  = "chefkoch";
 $benutzer     = "root";

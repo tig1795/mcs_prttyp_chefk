@@ -66,8 +66,24 @@ function our_sql_connect ( $server, $benutzer, $passwort, $name_der_db ) {
   return $link;
 }
 
+// Filtert welche Punkte in der Menüleiste "active" sind und damit hervorgehoben werden sollen
+function active_or_hover ($title, $kategorie="default"){
+	if ($title == $kategorie){
+	print <<<EOH
+	<li class="active">
+EOH;
+}else{
+	print <<<EOH
+	<li>
+EOH;
+}
+}
+
 // Statischer HTML Rahmen vor dem Seiteninhalt
-function my_html_head ( $title = "test", $name="default") {	
+
+// Menükategorien: index rezepte magazin community videos dinner meinkochbuch
+
+function my_html_head ( $title) {	
   $server = $_SERVER["SERVER_NAME"];
   print <<<EOH
 <!DOCTYPE html>
@@ -89,10 +105,19 @@ function my_html_head ( $title = "test", $name="default") {
       <img src="../../images/chefkoch-logo_1-1-30.png" alt="" width="120" height="65"/>
       </div>
     <ul>
-      <li class="active">
+EOH;
+
+active_or_hover ($title, "index");
+
+print <<<EOH
         <a href="index2.php"><i class="fa fa-home" aria-hidden="true"></i>Startseite</a>
       </li>
-      <li><a href="#"><i class="fa fa-book" aria-hidden="true"></i>Rezepte</a>
+EOH;
+
+active_or_hover ($title, "rezepte");
+
+print <<<EOH
+<a href="#"><i class="fa fa-book" aria-hidden="true"></i>Rezepte</a>
         <div class="sub-menu-1">
           <ul>
             <li class="hover-me"><a href="#">Rezepte finden</a><i class="fa fa-angle-right"></i>
@@ -130,7 +155,13 @@ function my_html_head ( $title = "test", $name="default") {
           </ul>
         </div>
       </li>
-      <li><a href="#"><i class="fa fa-newspaper-o" aria-hidden="true"></i> Magazin</a>
+EOH;
+
+active_or_hover ($title, "magazin");
+
+print <<<EOH
+
+<a href="#"><i class="fa fa-newspaper-o" aria-hidden="true"></i> Magazin</a>
         <div class="sub-menu-1">
           <ul>
             <li class="hover-me"><a href="#">Magazin Übersicht</a><i class="fa fa-angle-right"></i>
@@ -177,7 +208,12 @@ function my_html_head ( $title = "test", $name="default") {
           </ul>
         </div>      
       </li>
-      <li><a href="#"><i class="fa fa-users" aria-hidden="true"></i>Community</a>
+EOH;
+
+active_or_hover ($title, "community");
+
+print <<<EOH
+<a href="#"><i class="fa fa-users" aria-hidden="true"></i>Community</a>
         <div class="sub-menu-1">
           <ul>
             <li class="hover-me"><a href="#">Chefkoch Events</a> 
@@ -215,7 +251,13 @@ function my_html_head ( $title = "test", $name="default") {
           </ul>
         </div>
       </li>
-      <li><a href="#"><i class="fa fa-play" aria-hidden="true"></i>Videos</a>
+EOH;
+
+active_or_hover ($title, "videos");
+
+print <<<EOH
+	  
+	  <a href="#"><i class="fa fa-play" aria-hidden="true"></i>Videos</a>
         <div class="sub-menu-1">
             <ul>
                  <li><a href="Lieblingsrezepte2.php">Lieblingsrezepte</a></li>
@@ -232,8 +274,18 @@ function my_html_head ( $title = "test", $name="default") {
             </ul>
         </div>
     </li>
-      <li><a href="#"><i class="fa fa-heart" aria-hidden="true"></i>Das perfekte Dinner</a></li>
-      <li><a href="#"><i class="fa fa-cutlery" aria-hidden="true"></i>Mein Kochbuch</a></li>	  
+EOH;
+
+active_or_hover ($title, "dinner");
+
+print <<<EOH
+<a href="#"><i class="fa fa-heart" aria-hidden="true"></i>Das perfekte Dinner</a></li>
+EOH;
+
+active_or_hover ($title, "meinkochbuch");
+
+print <<<EOH
+<a href="#"><i class="fa fa-cutlery" aria-hidden="true"></i>Mein Kochbuch</a></li>	  
 EOH;
 	  if(!isset($_SESSION['userid'])) {
     echo '<li><a href="login2.php"><i class="fa fa-user-circle-o" aria-hidden="true"></i>Login</a></li>';
