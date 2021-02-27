@@ -48,9 +48,9 @@ EOH;
                     echo '<table border="1">';
                     while ($zeile = mysqli_fetch_array($ergebnis, MYSQLI_ASSOC))
                     {
-                        echo "<tr>";
+                        echo '<tr>';
                         echo "<td>". $zeile['ID'] . "</td>";
-                        echo "<td>". $zeile['Rezeptname'] . "</td>";
+                        echo '<td><a href="rezept.php?rezept='.$zeile["ID"].'">'. $zeile['Rezeptname'] . "</a></td>";
                         echo "<td>". $zeile['Zubereitungszeit'] . "</td>";
                         echo "<td>". $zeile['Schwierigkeitsgrad'] . "</td>";
                         echo "<td>". $zeile['Kalorien'] . "</td>";

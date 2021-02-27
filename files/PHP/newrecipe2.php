@@ -73,13 +73,18 @@ z.B. Angaben zur Temperatur des Backofens und dass alle von dir aufgeführten Zu
 <td><textarea class="howto" name="howto"></textarea></td>
 </tr>
 <tr>
-      <td>Arbeitszeit:<input type="text" name="preptime"></td><td>Schwierigkeitsgrad:<input type="text" name="difficulty"></td>
+      <td>Arbeitszeit:<input type="text" name="preptime">min</td>
+	  <td>Schwierigkeitsgrad:<select name="difficulty">
+    <option value="simpel">simpel</option>
+    <option value="normal">normal</option>
+    <option value="pfiffig">pfiffig</option>
+  </select></td>
     </tr>
 	<tr>
-      <td>Koch-/Backzeit:<input type="text" name="cooktime"></td><td>Kalorien:<input type="text" name="kcal"></td>
+      <td>Koch-/Backzeit:<input type="text" name="cooktime">min</td><td>Kalorien:<input type="text" name="kcal"></td>
     </tr>
 	<tr>
-      <td>Ruhezeit:<input type="text" name="waittime"></td>
+      <td>Ruhezeit:<input type="text" name="waittime">min</td>
     </tr>
 </table>
 <button type="button" class="category" onclick="globaltoggle('category', 'bild', 'zubereitung', 'rezept', 'vorschau', 'info');">weiter</button>
