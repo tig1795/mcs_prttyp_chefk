@@ -67,7 +67,7 @@ function our_sql_connect ( $server, $benutzer, $passwort, $name_der_db ) {
 }
 
 // Filtert welche Punkte in der Menüleiste "active" sind und damit hervorgehoben werden sollen
-function active_or_hover ($title, $kategorie="default"){
+function active_or_hover ($title, $kategorie){
 	if ($title == $kategorie){
 	print <<<EOH
 	<li class="active">
