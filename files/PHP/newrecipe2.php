@@ -42,13 +42,13 @@ if ( $rezeptname == "" ) {
 
 
 <div class="content" id="rezept" style="display:block">
-Rezeptname:<br>
+Rezeptname:<span class="Hinweis">*Pflichtfeld</span><br>
 <br><input class="rezinput" type="text" name="rezeptname"><br>
 <br>Zusätzliche Informationen:<br>
 <br><input class="rezinput" type="text" name="arbinfo"><br>
 <br>Portionen:<br>
 <br>Das Rezept ist ausgelegt für <input class="portion" type="text" name="portion"> Portionen<br>
-<br>Zutaten und Menge:<br>
+<br>Zutaten und Menge:<span class="Hinweis">*Pflichtfeld</span><br>
 <br><textarea class="zutaten" rows="4" cols="100" name="zutaten"></textarea><br>
 <br>
 <button type="button" class="category" onclick="globaltoggle('zubereitung','category', 'bild', 'rezept', 'vorschau', 'info');">weiter</button>
@@ -56,17 +56,17 @@ Rezeptname:<br>
 
 
 <div class="content" id="zubereitung" style="display:none"> 
-<h3>Rezeptzubereitung</h3>
+<h3>Rezeptzubereitung<span class="Hinweis">*Pflichtfeld</span></h3>
 Hier kannst du beschreiben, welche Schritte für die Zubereitung des Rezeptes notwendig sind. <br/>
 Bitte achte darauf, dass alle relevanten Informationen enthalten sind, <br/>
 z.B. Angaben zur Temperatur des Backofens und dass alle von dir aufgeführten Zutaten enthalten sind. 
 <br>
 <br><textarea class="howto" rows="4" cols="100" name="howto"></textarea><br>
-<br>Arbeitszeit:<input class="rezinput" type="text" name="preptime">min
+<br>Arbeitszeit:<span class="Hinweis">*Pflichtfeld</span><input class="rezinput" type="text" name="preptime">min
 <br>
 <br>Koch-/Backzeit:<input class="rezinput" type="text" name="cooktime">min
 <br><br>Ruhezeit:<input class="rezinput" type="text" name="waittime">min<br>
-<br>Schwierigkeitsgrad:<select class="rezinput" name="difficulty">
+<br>Schwierigkeitsgrad:<span class="Hinweis">*Pflichtfeld</span><select class="rezinput" name="difficulty">
     <option value="simpel">simpel</option>
     <option value="normal">normal</option>
     <option value="pfiffig">pfiffig</option>
