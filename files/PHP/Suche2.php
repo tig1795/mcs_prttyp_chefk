@@ -64,7 +64,7 @@ EOH;
 
         
 
-  print'  </section>';
+  print'  </section><br>';
     
 my_html_foot ( );
 ?>

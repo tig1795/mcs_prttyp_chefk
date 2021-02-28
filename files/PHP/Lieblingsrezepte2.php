@@ -28,8 +28,7 @@ print <<<EOH
       </div>
 
       <br>
-  <hr>
-  <br>
+  
 EOH;
   
   

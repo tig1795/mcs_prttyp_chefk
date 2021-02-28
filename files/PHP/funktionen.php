@@ -94,9 +94,6 @@ function my_html_head ( $title) {
     <link rel="stylesheet" href="../CSS/slide.css" type="text/css">
     <link rel="stylesheet" href="../CSS/Fußzeile.css" type="text/css">
 	<link rel="stylesheet" href="../CSS/Lieblingsrezepte.css" type="text/css">
-	<link rel="stylesheet" href="../CSS/results.css" type="text/css">
-	<link rel="stylesheet" href="../CSS/design.css" type="text/css">
-	<link rel="stylesheet" href="../CSS/style.css" type="text/css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     
@@ -332,7 +329,7 @@ eoh;
 } 
 	  print <<<EOH
       <div class="search-container">
-      <form action='Suche2.php'method="get">
+      <form action="Suche2.php" method="get">
           <input type="text" class="suchfeld" name="search" />
           <input type="submit" class="suchbutton" value="Suche" />
       </form>
@@ -348,6 +345,8 @@ EOH;
 // Statischer HTML Fuss, nach dem Seiteninhalt
 function my_html_foot () {
   print<<<EndOfHtml
+  <hr>
+  <br>
 <div id="footer">
   <div id="left">Konzern<br>
   <br>

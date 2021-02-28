@@ -65,8 +65,7 @@ print <<<EndOfHtml
 
   <script src="../JavaScript/script.js"></script><br>
   <br>
-  <hr>
-  <br>
+  
 EndOfHtml;
 
 

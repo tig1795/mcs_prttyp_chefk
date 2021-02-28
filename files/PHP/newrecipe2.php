@@ -26,82 +26,70 @@ $rezeptname = my_isset_post ( "rezeptname" );
 
 if ( $rezeptname == "" ) {  
 	print <<<EndOfHtml
+	<div class="eingabe">
 <form action="http://$server$script" method="post">
-
+<br>
 <div class="menu"><!--  -->
-<h3><text>Rezept eingeben: </tex>
-<button type="button" class="category" onclick="globaltoggle('rezept', 'zubereitung','category', 'bild', 'vorschau', 'info');">Rezept</button><text>>>></text>
-<button type="button" class="category" onclick="globaltoggle('zubereitung','category', 'bild', 'rezept', 'vorschau', 'info');">Zubereitung</button><text>>>></text>
-<button type="button" class="category" onclick="globaltoggle('category', 'bild', 'zubereitung', 'rezept', 'vorschau', 'info');">Kategorien</button><text>>>></text>
-<button type="button" class="category" onclick="globaltoggle('bild', 'category', 'zubereitung', 'rezept', 'vorschau', 'info');">Rezeptbild</button><text>>>></text>
+<h3><text>Rezept eingeben: </text>
+<button type="button" class="category" onclick="globaltoggle('rezept', 'zubereitung','category', 'bild', 'vorschau', 'info');">Rezept</button><text>»</text>
+<button type="button" class="category" onclick="globaltoggle('zubereitung','category', 'bild', 'rezept', 'vorschau', 'info');">Zubereitung</button><text>»</text>
+<button type="button" class="category" onclick="globaltoggle('category', 'bild', 'zubereitung', 'rezept', 'vorschau', 'info');">Kategorien</button><text>»</text>
+<button type="button" class="category" onclick="globaltoggle('bild', 'category', 'zubereitung', 'rezept', 'vorschau', 'info');">Rezeptbild</button><text>»</text>
 <button type="button" class="category" onclick="globaltoggle('vorschau', 'bild', 'category', 'zubereitung', 'rezept', 'info');">Vorschau:</button></h3>
 </div>
-<br><br><br><br>
+<br><br>
 <div class="wrapper">
 
 
 <div class="content" id="rezept" style="display:block">
-<table>
-<tr>
-      <td>Rezeptname:</td>
-      <td><input type="text" name="rezeptname"></td>
-    </tr>
-	<tr>
-      <td>Zusätzliche Informationen:</td>
-      <td><input type="text" name="arbinfo"></td>
-    </tr>
-	<tr>
-      <td>Portionen:</td></tr>
-	<tr>
-      <td><text>Das Rezept ist ausgelegt für </text><input type="text" name="portion"><text> Portionen</text></td>
-    </tr>
-	<tr>
-      <td>Zutaten und Menge:</td>
-      <td><textarea class="zutaten" name="zutaten"></textarea></td>
-    </tr>
-</table>
+Rezeptname:<br>
+<br><input class="rezinput" type="text" name="rezeptname"><br>
+<br>Zusätzliche Informationen:<br>
+<br><input class="rezinput" type="text" name="arbinfo"><br>
+<br>Portionen:<br>
+<br>Das Rezept ist ausgelegt für <input class="portion" type="text" name="portion"> Portionen<br>
+<br>Zutaten und Menge:<br>
+<br><textarea class="zutaten" rows="4" cols="100" name="zutaten"></textarea><br>
+<br>
 <button type="button" class="category" onclick="globaltoggle('zubereitung','category', 'bild', 'rezept', 'vorschau', 'info');">weiter</button>
 </div>
 
 
 <div class="content" id="zubereitung" style="display:none"> 
-<table><tr><h3>Rezeptzubereitung</h3><text></tr>
+<h3>Rezeptzubereitung</h3>
 Hier kannst du beschreiben, welche Schritte für die Zubereitung des Rezeptes notwendig sind. <br/>
 Bitte achte darauf, dass alle relevanten Informationen enthalten sind, <br/>
-z.B. Angaben zur Temperatur des Backofens und dass alle von dir aufgeführten Zutaten enthalten sind. </text>
-</tr><tr>
-<td><textarea class="howto" name="howto"></textarea></td>
-</tr>
-<tr>
-      <td>Arbeitszeit:<input type="text" name="preptime">min</td>
-	  <td>Schwierigkeitsgrad:<select name="difficulty">
+z.B. Angaben zur Temperatur des Backofens und dass alle von dir aufgeführten Zutaten enthalten sind. 
+<br>
+<br><textarea class="howto" rows="4" cols="100" name="howto"></textarea><br>
+<br>Arbeitszeit:<input class="rezinput" type="text" name="preptime">min
+<br>
+<br>Koch-/Backzeit:<input class="rezinput" type="text" name="cooktime">min
+<br><br>Ruhezeit:<input class="rezinput" type="text" name="waittime">min<br>
+<br>Schwierigkeitsgrad:<select class="rezinput" name="difficulty">
     <option value="simpel">simpel</option>
     <option value="normal">normal</option>
     <option value="pfiffig">pfiffig</option>
-  </select></td>
-    </tr>
-	<tr>
-      <td>Koch-/Backzeit:<input type="text" name="cooktime">min</td><td>Kalorien:<input type="text" name="kcal"></td>
-    </tr>
-	<tr>
-      <td>Ruhezeit:<input type="text" name="waittime">min</td>
-    </tr>
-</table>
+  </select><br>
+<br>Kalorien:<input class="rezinput" type="text" name="kcal">
+ <br>
+
+<br>
 <button type="button" class="category" onclick="globaltoggle('category', 'bild', 'zubereitung', 'rezept', 'vorschau', 'info');">weiter</button>
  </div>
  
  
  <div class="content" id="category" style="display:none">
  Bitte wähle aus, welche Kategorien deinem Rezept zugeordnet werden sollen.<br/><br/>
- <input type="checkbox" name="bakensweets" value="Backen & Süßspeisen">
+ <input class="rezinput" type="checkbox" name="bakensweets" value="Backen & Süßspeisen">
   <label for="bakensweets"> Backen & Süßspeisen</label><br>
-  <input type="checkbox" name="drinks" value="Getränke">
+  <input class="rezinput" type="checkbox" name="drinks" value="Getränke">
   <label for="drinks"> Getränke</label><br>
-  <input type="checkbox" name="breakfast" value="Frühstück">
+  <input class="rezinput" type="checkbox" name="breakfast" value="Frühstück">
   <label for="breakfast"> Frühstück</label><br>
-  <input type="checkbox" name="lunch" value="Lunch">
+  <input class="rezinput" type="checkbox" name="lunch" value="Lunch">
   <label for="lunch"> Lunch</label><br>
-  <input type="checkbox" name="abendessen" value="Abendessen">
+  <input class="rezinput" type="checkbox" name="abendessen" value="Abendessen">
   <label for="abendessen"> Abendessen</label><br><br>
   <button type="button" class="category" onclick="globaltoggle('bild', 'category', 'zubereitung', 'rezept', 'vorschau', 'info');">weiter</button>
 </div>
@@ -111,22 +99,20 @@ z.B. Angaben zur Temperatur des Backofens und dass alle von dir aufgeführten Zu
 Wähle die passende Datei (JPG) auf deiner Festplatte aus. Beachte bitte auch unsere Qualitätsstandards.
 <br><br>
 Die Übertragung der Daten kann mehrere Minuten in Anspruch nehmen. Bitte habe etwas Geduld.<br><br><br><br>
-<button>Bild auswählen(funktinoiert nicht)</button><br><br>
+<button>Bild auswählen(funktioniert nicht)</button><br><br>
 <button type="button" class="category" onclick="globaltoggle('vorschau', 'bild', 'category', 'zubereitung', 'rezept', 'info');">weiter</button>
 </div> 
 
 
 <div class="content" id="vorschau" style="display:none">
-<table><tr>
-<h3>Vorschau: </h3></tr>
-<tr>Hier wäre Platz für eine Vorschau
-</tr></table>
-<span class="noprint"><p><input type="submit" value="Hinzufügen"></p></span>
+<h3>Vorschau: </h3>Hier wäre Platz für eine Vorschau
+<br><br>
+<span class="noprint"><p><input class="newrezept" type="submit" value="Hinzufügen"></p></span>
 </div>
 
 </div>
 </form>
-
+</div>
 
 <script>
 function globaltoggle(show, hide, hide2, hide3, hide4, hide5) {
@@ -157,7 +143,7 @@ function globaltoggle(show, hide, hide2, hide3, hide4, hide5) {
   } 
 } 
 </script>
-
+<br>
 
 EndOfHtml;
 my_html_foot ();	
@@ -231,7 +217,7 @@ my_html_foot ();
 
   print <<<EndOfHtml
 <p><form action="Index2.php">
-<input type="submit" value="OK">
+<input class="rezinput" type="submit" value="OK">
 </form>
 EndOfHtml;
 my_html_foot ();

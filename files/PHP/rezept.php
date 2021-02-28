@@ -26,13 +26,13 @@ if ( $rezeptid != "" ) {
 $ergebnis = mysqli_query ( $link, $anfrage );
 my_sql_error ( $ergebnis, $link );
 $eintrag = mysqli_fetch_array ( $ergebnis, MYSQLI_ASSOC );
-echo "<h2>".$eintrag['Rezeptname']."</h2><br><br><br><br>Platz für ein Bild<br><br><br><br>";
+echo "<br><h2>".$eintrag['Rezeptname']."</h2><br><br><img src=\"../../images/Beispielbild-01.jpg\" height=\"400\"/><br><br>";
 echo $eintrag['arbinfo']."<br><br>";
-echo "<table><tr><td>Zubereitungsdauer: ".$eintrag['Zubereitungszeit']."min; </td><td>Schwierigkeitsgrad: ".$eintrag['Schwierigkeitsgrad']."; </td><td>Kalorien: ".$eintrag['Kalorien']."</td></tr></table><br><br>";
-echo "Zutaten:<br>". $eintrag['Zutaten']."<br><br>";
-echo "Zubereitung:<br><table><tr><td>Zubereitungsdauer: ".$eintrag['Zubereitungszeit']."min; </td><td>Koch-/Backzeit: ".$eintrag['cooktime']."min; </td><td>Ruhezeit: ".$eintrag['waittime']."min</td></tr></table><br><br>";
-echo $eintrag['Zubereitung']."<br><br>";
-echo "Schlagwörter für dieses Rezept:". $eintrag['category'];
+echo "<div class=\"content\"><span class=\"mini\">Zubereitungsdauer: ".$eintrag['Zubereitungszeit']."min</span><span class=\"mini\">Schwierigkeitsgrad: ".$eintrag['Schwierigkeitsgrad']."</span><span class=\"mini\">Kalorien: ".$eintrag['Kalorien']."</span></div><br><br>";
+echo "<div class=\"content\"><h5>Zutaten:<h5><br>". $eintrag['Zutaten']."</div><br><br>";
+echo "<div class=\"content\">Zubereitung:<br><br><table><tr><td>Zubereitungsdauer: ".$eintrag['Zubereitungszeit']."min;</td><td>Koch-/Backzeit: ".$eintrag['cooktime']."min; </td><td>Ruhezeit: ".$eintrag['waittime']."min</td></tr></table><br>";
+echo $eintrag['Zubereitung']."</div><br><br>";
+echo "<div class=\"content\">Schlagwörter für dieses Rezept:". $eintrag['category']."</div><br>";
 
 
 	print <<<EndOfHtml
