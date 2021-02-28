@@ -1,10 +1,18 @@
 Erstellung eines funktionalen Prototypes für eine nutzerfreundlichere Version der Website https://www.chefkoch.de/
 
-TO-DOs:
+Der funktionale Prototyp wurde mit Hilfe eines Xampp-Servers erstellt.
 
-- Datenbank: möglicherweise Spalten ändern.
-- Rezepteingabe-Funktion nur wenn man eingeloggt ist. 
-- Schlagwörter mit Toogleleiste.
-- Suchseite --> Filter für Ergebnisse.
-- class aktiv.
-- Pop-Up hinzufügen. 
+Zum Import der Datenbank in PhpmyAdmin: 
+  - Die Datenbank muss chefkoch heißen.
+  - mcs_prttyp_chefk\database\chefkoch.sql importieren.
+
+Funktionierende Seiten bzw. Links: 
+  - Login
+  - Registrierung
+  - Startseite
+  - Suchleiste / Anzeige der Suchergebnisse
+  - Rezepte >> Rezept finden >> Rezept eingeben (Man muss eingeloggt sein, um ein Rezept einzugeben.)
+  - Videos >> Lieblingsrezepte (Beispielseite mit Video-Integration)
+  - Rezeptanzeige
+  - Fußleiste >> Quicklinks >> Liebelingsrezepte
+
