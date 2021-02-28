@@ -93,6 +93,10 @@ function my_html_head ( $title) {
     <link rel="stylesheet" href="../CSS/menubar.css" type="text/css">
     <link rel="stylesheet" href="../CSS/slide.css" type="text/css">
     <link rel="stylesheet" href="../CSS/Fußzeile.css" type="text/css">
+	<link rel="stylesheet" href="../CSS/Lieblingsrezepte.css" type="text/css">
+	<link rel="stylesheet" href="../CSS/results.css" type="text/css">
+	<link rel="stylesheet" href="../CSS/design.css" type="text/css">
+	<link rel="stylesheet" href="../CSS/style.css" type="text/css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     

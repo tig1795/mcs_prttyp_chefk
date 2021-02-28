@@ -156,11 +156,11 @@ function globaltoggle(show, hide, hide2, hide3, hide4, hide5) {
     y5.style.display = "none";
   } 
 } 
-	</script>
+</script>
 
 
 EndOfHtml;
-	
+my_html_foot ();	
 	exit;
 } else {
 
@@ -234,7 +234,8 @@ EndOfHtml;
 <input type="submit" value="OK">
 </form>
 EndOfHtml;
+my_html_foot ();
 }
-	my_html_foot ();
+
 	
 ?>
