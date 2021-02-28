@@ -18,9 +18,24 @@ $link = our_sql_connect ( $server, $benutzer, $passwort, $name_der_db );
 
 
 print <<<EOH
+  
+  <form>
+  <br>
+    Schlagwörter:
+    <br>
+    <br>
+    <select class="filter" name="filter">
+    <option value="#">Filter auswählen</option>
+    <option value="#">Backen & Süßigkeiten</option>
+    <option value="#">Getränke</option>
+    <option value="#">Frühstück</option>
+    <option value="#">Mittagessen</option>
+    <option value="#">Abendessen</option>
+    </select><br>
+  </form>
   <br>
   <header>Suchergebnisse:</header><br>
-  <br>
+
     <section>
         <p>
 EOH;

@@ -160,7 +160,6 @@ my_html_foot ();
   $zutaten = my_isset_post ( "zutaten" );
   $howto = my_isset_post ( "howto" );
   $arbinfo = my_isset_post ( "arbinfo" );
-  $portion = my_isset_post ( "portion" );
   $cooktime = my_isset_post ( "cooktime" );
   $waittime = my_isset_post ( "waittime" );
   
@@ -178,7 +177,6 @@ my_html_foot ();
   my_check_input ( $zutaten, "Zutaten" );
   my_check_input ( $howto, "Zubereitung" );
   my_check_input ( $arbinfo, "Infofeld" );
-  my_check_input ( $portion, "Portionsangabe" );
   my_check_input ( $cooktime, "Koch-/Backzeit" );
   my_check_input ( $waittime, "Ruhezeit" );
   
@@ -192,7 +190,6 @@ my_html_foot ();
 	  Zutaten,
 	  Zubereitung,
 	  arbinfo,
-	  portion,
 	  cooktime,
 	  waittime,
 	  category)
@@ -203,9 +200,8 @@ my_html_foot ();
 	  '$difficulty',
 	  '$kcal',
 	  '$zutaten',
-      '$howto',
+    '$howto',
 	  '$arbinfo',
-	  '$portion',
 	  '$cooktime',
 	  '$waittime',
 	  '$category' );") ) {

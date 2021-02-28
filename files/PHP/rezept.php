@@ -40,7 +40,31 @@ echo "<div class=\"content\">Schlagwörter für dieses Rezept:". $eintrag['categ
 
 EndOfHtml;
 }else{
-	echo 'Hups, da ist wohl etwas schieg gelaufen..';
+	print <<<eoh
+
+	<div class="popup" id="popup-1">
+	<script src="../JavaScript/PopUp.js"></script>
+	<link rel="stylesheet" href="../CSS/PopUp.css" type="text/css"/>
+      <div class="overlay"></div>
+      <div class="inhalt">
+        <div class="close-btn" onclick="togglePopup()">&times;</div>
+        <h1>Wieso sehe ich nichts?</h1><br>
+        <br>
+        <p>Es ist kein Rezept ausgewählt.</p>
+      </div>
+    </div>
+     
+    <button onclick="togglePopup()"><img src="../../images/chef.svg" alt="" width="200" height="180"></img></button>
+    <div><a href="https://www.flaticon.com/authors/xnimrodx" title="xnimrodx"></a> <a href="https://www.flaticon.com/" title="Flaticon"></a>
+    <p class="bildunterschrift">Wieso sehe ich nichts?</p></div>
+	</div><br>
+
+
+    
+
+
+
+eoh;	
 }
 my_html_foot ( );
 ?>
