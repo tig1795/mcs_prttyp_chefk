@@ -22,7 +22,12 @@ input[type=submit]:hover {
     background-color: green;
     color: white;
 }
-
+.Hinweis{
+	border: 1px solid #ccc;
+    font-size: 10px;
+	color: red;
+	margin-left:5px;
+}
 .portion{
 	border: 1px solid #ccc;
     font-size: 22px; /* fallback */
