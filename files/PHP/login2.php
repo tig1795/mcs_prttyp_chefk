@@ -68,7 +68,7 @@ Dein Passwort:<br>
 <input type="submit" value="Abschicken"><br>
 <br>
 
-<p>Sie haben noch kein Konto? <a href="registrieren.php">Hier registrieren</a>.</p>
+<p>Sie haben noch kein Konto? <a href="registrieren2.php">Hier registrieren</a>.</p>
 </form> 
 </body>
 </html>
