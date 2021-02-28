@@ -106,7 +106,7 @@ function my_html_head ( $title) {
  
   <div class="menu-bar">
     <div class="logo">
-      <img src="../../images/chefkoch-logo_1-1-30.png" alt="" width="120" height="65"/>
+      <a href="index2.php"><img src="../../images/chefkoch-logo_1-1-30.png" alt="" width="120" height="65"/></a>
       </div>
     <ul>
 EOH;
