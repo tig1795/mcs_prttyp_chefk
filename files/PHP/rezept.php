@@ -41,8 +41,7 @@ echo "<div class=\"content\">Schlagwörter für dieses Rezept:". $eintrag['categ
 EndOfHtml;
 }else{
 	print <<<eoh
-
-	<div class="popup" id="popup-1">
+<div class="popup" id="popup-1">
 	<script src="../JavaScript/PopUp.js"></script>
 	<link rel="stylesheet" href="../CSS/PopUp.css" type="text/css"/>
       <div class="overlay"></div>
@@ -58,13 +57,9 @@ EndOfHtml;
     <div><a href="https://www.flaticon.com/authors/xnimrodx" title="xnimrodx"></a> <a href="https://www.flaticon.com/" title="Flaticon"></a>
     <p class="bildunterschrift">Wieso sehe ich nichts?</p></div>
 	</div><br>
-
-
-    
-
-
-
-eoh;	
+eoh;
+	
+	
 }
 my_html_foot ( );
 ?>
