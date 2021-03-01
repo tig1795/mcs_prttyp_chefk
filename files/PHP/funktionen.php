@@ -3,7 +3,7 @@
 
 //prüft ob in Eingaben in HTML Formulare verbotene Zeichen eingegeben werden
 function my_check_input ( $string, $name ) {
-  if ( preg_match ( "/<|%3C|>|%3E|;|%3B/", $string ) ) {
+  if ( preg_match ( "/<|%3C|>|%3E|;|%3B/", $string ) ) { //%3B = Semikolon, %3C = <, %3E = >
     echo "Ungültige Zeichen bei <i>$name</i>!";
 	my_button_back ();
     exit;
@@ -12,6 +12,7 @@ function my_check_input ( $string, $name ) {
 
 
 // Falls man mal einen "Zurückbutton" braucht
+// Nicht verwendet.
 function my_button_back ( $step = "1" ) {
    print <<<___EndOfHtml
    <script language="JavaScript" type="text/javascript">
@@ -21,6 +22,7 @@ ___EndOfHtml;
 }
 
 // wird wohl auch eher wenig gebraucht, aber wer weiß
+// auch nicht benutzt
 function my_file_to_array ( $datei ) {
   // Eine Datei wird in ein Array eingelesen und ausgegeben
   $fp = "$datei";
@@ -37,6 +39,8 @@ function my_file_to_array ( $datei ) {
 }
 
 //um die issets abzukürzen und zu prüfen
+//isset = Php-Funktion, überprüft, ob das $_REQUEST true oder false zurückgibt.
+//$_REQUEST für Datenabrufung, die vorher mit method="post" zur Verfügung gestellt wurden.
 function my_isset_post ( $text ) {
   if ( isset ( $_REQUEST["$text"] )) {
     $string = trim ( $_REQUEST["$text"] );
@@ -46,7 +50,9 @@ function my_isset_post ( $text ) {
   return $string;
 }
 
-// für mysqli error checking
+//für mysqli error checking
+//$link enthält die DB Zugangsvaribalen,
+//$ergebnis DB-Abfrage(SELECT * FROM ...) oder DB_Zugriff(INSERT Into...)
 function my_sql_error ( $ergebnis, $link ) {
   if ( ! $ergebnis ) {
     printf("<br>Error: %s\n", mysqli_error( $link ) );
@@ -67,6 +73,7 @@ function our_sql_connect ( $server, $benutzer, $passwort, $name_der_db ) {
 }
 
 // Filtert welche Punkte in der Menüleiste "active" sind und damit hervorgehoben werden sollen
+// $title = Seite, prüft ob diese mit der Kategorie übereinstimmt.
 function active_or_hover ($title, $kategorie){
 	if ($title == $kategorie){
 	print <<<EOH
@@ -84,7 +91,7 @@ EOH;
 // Menükategorien: index rezepte magazin community videos dinner meinkochbuch
 
 function my_html_head ( $title) {	
-  $server = $_SERVER["SERVER_NAME"];
+  $server = $_SERVER["SERVER_NAME"]; //Abfragung der Servervariable
   print <<<EOH
 <!DOCTYPE html>
 
@@ -108,7 +115,7 @@ function my_html_head ( $title) {
     <ul>
 EOH;
 
-active_or_hover ($title, "index");
+active_or_hover ($title, "index"); //$title = "index" stimmt auf der Startseite, deswegen Startseite class="active.
 
 print <<<EOH
         <a href="index2.php"><i class="fa fa-home" aria-hidden="true"></i>Startseite</a>
@@ -127,7 +134,10 @@ print <<<EOH
                 <li><a href="#">Kategorien</a></li>
 				
 EOH;
-if(isset($_SESSION['userid'])) {
+if(isset($_SESSION['userid'])) { //Wenn eingeloggt, dann ist in $_SESSION eine userid vorhanden.
+                                // Wenn ausgelogt, dann ist $_SESSION leer.
+                                // isset überprüft, ob in $_SESSION eine userid vorhanden ist oder nicht.
+                                // Wenn ja wird Rezepte eingeben angezeigt, wenn nicht wird dieser Menuüpunkt nicht angezeigt.
 	print '<li><a href="newrecipe2.php">Rezept eingeben</a></li>';
 }
 print <<<EOH

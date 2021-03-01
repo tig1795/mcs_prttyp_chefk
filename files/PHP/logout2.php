@@ -20,7 +20,7 @@
 
 <?php
 session_start();
-session_destroy();
+session_destroy();  //Cookies und $_SESSION wird geleert.
  
 echo "Logout erfolgreich. Zurück zur <a href= Index2.php> Startseite.</a>";
 ?>

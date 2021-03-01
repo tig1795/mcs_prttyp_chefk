@@ -43,7 +43,7 @@ EOH;
                 $suchwort = $_GET["search"];
                 $abfrage = "";
                 $abfrage2 = "";
-                $suchwort = explode(" ", $suchwort);
+                $suchwort = explode(" ", $suchwort); // String wird in einzelne Wörter unterteilt. Trennzeiche = Leerzeichen.
                 for($i = 0; $i < sizeof($suchwort); $i++)
                 {
                     $abfrage .= "`Rezeptname` LIKE '%" . $suchwort[$i] . "%'";

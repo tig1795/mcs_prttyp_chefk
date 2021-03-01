@@ -70,6 +70,7 @@ if(isset($_GET['register'])) { //Überprüfung, ob der GET-Parameter übergeben 
         
         $statement = $pdo->prepare("INSERT INTO users (vorname, nachname, email, passwort) VALUES (:vorname, :nachname, :email, :passwort)");
         //SQL-Query zum eintragen des neuen Nutzers.
+        //Vorbereitung eines Datenbankstatements.
 
         $result = $statement->execute(array('vorname' => $vorname, 'nachname' => $nachname, 'email' => $email, 'passwort' => $passwort_hash));
 

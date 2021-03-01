@@ -174,7 +174,7 @@ my_html_foot ();
   my_check_input ( $preptime, "Zubereitungszeit" );
   my_check_input ( $difficulty, "Schwierigkeitsgrad" ); 
   my_check_input ( $kcal, "Kalorien" ); 
-  my_check_input ( $zutaten, "Zutaten" );
+  my_check_input ( $zutaten, "Zutaten" );   //Prüfung auf ungültige Zeichen in Variablen.
   my_check_input ( $howto, "Zubereitung" );
   my_check_input ( $arbinfo, "Infofeld" );
   my_check_input ( $cooktime, "Koch-/Backzeit" );
